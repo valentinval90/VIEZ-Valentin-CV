@@ -385,6 +385,22 @@ body {
     flex-direction: column;
     gap: 10px;
   }
+
+  .photo-wrapper {
+  width: 150px;       /* largeur du cercle */
+  height: 150px;      /* hauteur du cercle */
+  overflow: hidden;   /* cache ce qui dépasse */
+  border-radius: 50%; /* forme circulaire */
+  border: 3px solid var(--primary); /* optionnel, contour */
+}
+
+.photo-wrapper img {
+  width: 100%;        /* remplit le conteneur */
+  height: 100%;       /* remplit le conteneur */
+  object-fit: cover;  /* garde les proportions et remplit le cercle */
+  display: block;
+}
+
   
 }
 </style>
