@@ -76,22 +76,19 @@ body {
 }
 
 .photo-wrapper {
-  flex-shrink: 0;
+  width: 180px;         /* taille fixe */
+  height: 180px;        /* carré strict */
+  border-radius: 50%;   /* cercle parfait */
+  overflow: hidden;     /* coupe les débordements */
+  border: 5px solid #f5f6fa; /* optionnel */
+  flex-shrink: 0;       /* ne pas rétrécir dans flexbox */
 }
 
-.photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), #a29bfe);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
-  border: 5px solid #f5f6fa;
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* couvre tout le cercle sans déformation */
+  display: block;
 }
 
 .header-text h1 {
@@ -384,24 +381,7 @@ body {
   .experience-header {
     flex-direction: column;
     gap: 10px;
-  }
-
-  .photo-wrapper {
-  width: 150px;       /* largeur du cercle */
-  height: 150px;      /* hauteur du cercle */
-  overflow: hidden;   /* cache ce qui dépasse */
-  border-radius: 50%; /* forme circulaire */
-  border: 3px solid var(--primary); /* optionnel, contour */
-}
-
-.photo-wrapper img {
-  width: 100%;        /* remplit le conteneur */
-  height: 100%;       /* remplit le conteneur */
-  object-fit: cover;  /* garde les proportions et remplit le cercle */
-  display: block;
-}
-
-  
+  }  
 }
 </style>
 </head>
