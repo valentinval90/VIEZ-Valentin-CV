@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentin Viez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2d3436;
+  --accent: #6c5ce7;
+  --text: #2d3436;
+  --light-gray: #f8f9fa;
+  --border: #e9ecef;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: #f5f6fa;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  background: white;
+  color: var(--primary);
+  padding: 60px 80px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(108, 92, 231, 0.03);
+  border-radius: 50%;
+}
+
+.header-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.photo-wrapper {
+  flex-shrink: 0;
+}
+
+.photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #a29bfe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+  border: 5px solid #f5f6fa;
+}
+
+.header-text h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.header-text .subtitle {
+  font-size: 1.3em;
+  opacity: 0.95;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.badge {
+  background: var(--light-gray);
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--primary);
+}
+
+.contact-bar {
+  background: var(--light-gray);
+  padding: 25px 80px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95em;
+}
+
+.contact-item .icon {
+  font-size: 1.2em;
+}
+
+.contact-item a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover {
+  color: var(--primary);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 0;
+}
+
+.sidebar {
+  background: var(--light-gray);
+  padding: 50px 40px;
+  border-right: 1px solid var(--border);
+}
+
+.content {
+  padding: 50px 60px;
+}
+
+.section {
+  margin-bottom: 45px;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+}
+
+.profile-text {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.skill-level {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #d4b483);
+  border-radius: 10px;
+  transition: width 1s ease;
+  animation: fillBar 1.5s ease-out;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.languages {
+  font-size: 0.95em;
+  line-height: 2;
+}
+
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.experience-card {
+  background: white;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px var(--shadow);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+.experience-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.experience-period {
+  background: var(--light-gray);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  color: #666;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-card ul {
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+.experience-card li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.education-list {
+  list-style: none;
+}
+
+.education-item {
+  padding: 20px;
+  margin-bottom: 15px;
+  background: var(--light-gray);
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.education-item:hover {
+  transform: translateX(5px);
+}
+
+.print-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, var(--accent), #d4b483);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(201, 169, 105, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1000;
+}
+
+.print-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(201, 169, 105, 0.5);
+}
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+  .container {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .print-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .header {
+    padding: 40px 30px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header-text h1 {
+    font-size: 2.2em;
+  }
+  
+  .contact-bar {
+    padding: 20px 30px;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .content {
+    padding: 40px 30px;
+  }
+  
+  .experience-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <div class="header-content">
+      <div class="photo-wrapper">
+        <div class="photo">VV</div>
+      </div>
+      <div class="header-text">
+        <h1>Valentin VIEZ</h1>
+        <div class="subtitle">Technicien industrialisation & électronique</div>
+        <div class="badges">
+          <span class="badge">Industrialisation</span>
+          <span class="badge">Électronique embarquée</span>
+          <span class="badge">Qualité / Fiabilité</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="contact-bar">
+    <div class="contact-item">
+      <span class="icon">📍</span>
+      <span>Valdoie (90300), France</span>
+    </div>
+    <div class="contact-item">
+      <span class="icon">✉️</span>
+      <a href="mailto:valentinviez@gmail.com">valentinviez@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <span class="icon">📞</span>
+      <a href="tel:+33675359846">+33 6 75 35 98 46</a>
+    </div>
+    <div class="contact-item">
+      <span class="icon">🚗</span>
+      <span>Véhiculé</span>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <aside class="sidebar">
+      <div class="section">
+        <h2 class="section-title">Profil</h2>
+        <p class="profile-text">
+            Technicien en industrialisation et électronique, avec plus de 6 ans d’expérience dans l’industrie automobile et électronique. Spécialisé dans la mise en production de systèmes électroniques, la conception matérielle pour les tests de production, la traçabilité des produits, et l’accompagnement technique des équipes de production pour garantir qualité et fiabilité.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Compétences</h2>
+        
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>C / C++</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 78%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Python</span>
+            <span class="skill-level">Intermédiaire</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 62%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>CAN / LIN</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Ethernet automobile</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Firmware embarqué</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 75%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Conception PCB</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 88%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Web & bases de données</span>
+            <span class="skill-level">Intermédiaire</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span>Impression 3D / Réparation</span>
+            <span class="skill-level">Avancé</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: 95%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Langues</h2>
+        <div class="languages">
+          <div class="lang-item">
+            <span>Français</span>
+            <span>Langue maternelle</span>
+          </div>
+          <div class="lang-item">
+            <span>Anglais</span>
+            <span>Professionnel</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="section">
+        <h2 class="section-title">Expériences professionnelles</h2>
+        
+        <div class="experience-card">
+          <div class="experience-header">
+            <div class="experience-title">Technicien industrialisation • JRI</div>
+            <div class="experience-period">2022 – Aujourd'hui</div>
+          </div>
+          <ul>
+            <li>Industrialisation de produits électroniques et préparation des dossiers industriels</li>
+            <li>Support technique à la production et analyse de pannes</li>
+            <li>Traitement des non-conformités et actions correctives</li>
+            <li>Amélioration continue des procédés et fiabilisation produit</li>
+            <li>Rédaction de procédures et documentation technique</li>
+          </ul>
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-title">Technicien électronique • ALTRAN Technologies</div>
+          <div class="experience-period">2018 – 2022</div>
+          <ul>
+            <li>PSA Belchamp : Flying IVI et validation de systèmes embarqués</li>
+            <li>Validation fonctionnelle de calculateurs radio-fréquences</li>
+            <li>Mises à jour véhicules, diagnostic et débogage électronique</li>
+            <li>Valeo : validation de systèmes ADAS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Formation</h2>
+        <ul class="education-list">
+          <li class="education-item">Licence Professionnelle VEGA – Véhicules, Électronique et Automatismes</li>
+          <li class="education-item">BTS Systèmes Numériques – option Électronique</li>
+          <li class="education-item">Baccalauréat Professionnel Systèmes Électroniques et Numériques</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">📄 Télécharger PDF</button>
+
+</body>
+</html>
