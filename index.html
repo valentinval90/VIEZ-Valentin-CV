@@ -280,6 +280,16 @@ body {
   line-height: 1.6;
 }
 
+.experience-card p { color: #666; font-size: 0.9em; }
+.experience-card .experience-env { margin-top: 10px; color: #555; font-size: 0.88em; }
+.mission { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+.mission-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 15px; }
+.mission h4 { font-family: 'Poppins', Arial, sans-serif; font-size: 1em; font-weight: 600; color: var(--primary); }
+.mission-period { font-size: 0.85em; color: #666; font-weight: 500; white-space: nowrap; }
+.mission ul { margin-top: 8px; }
+.tool-group { margin-bottom: 14px; color: #555; font-size: 0.9em; line-height: 1.6; }
+.tool-group strong { display: block; color: var(--primary); font-weight: 600; }
+
 .education-list { list-style: none; }
 
 .education-item {
@@ -319,13 +329,15 @@ body {
 
 .print-btn:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 
-@page { size: A4; margin: 8mm; }
+@page { size: A4; margin: 5mm; }
 
 @media print {
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body { background: white; padding: 0; }
   .container { box-shadow: none; border-radius: 0; animation: none; }
-  .experience-card, .education-item { break-inside: avoid; }
+  .experience-card, .education-item { break-inside: avoid; }  .mission { break-inside: avoid; }
+  .experience-card.long { break-inside: auto; }
+
   .print-btn { display: none; }
 }
 
@@ -343,6 +355,50 @@ body {
   .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
   .content { padding: 40px 30px; }
   .experience-header { flex-direction: column; gap: 10px; }
+}
+
+/* Impression : une seule page A4 (placé en dernier pour l'emporter sur les media queries d'écran) */
+@media print {
+  html, body { height: auto; }
+  body { font-size: 7.6pt; line-height: 1.3; min-height: 0; padding: 0; }
+  .container { max-width: none; margin: 0; }
+  .header { padding: 9px 20px; }
+  .header::before { display: none; }
+  .header-content { flex-direction: row; text-align: left; gap: 16px; }
+  .photo-wrapper { width: 74px; height: 74px; border-width: 3px; }
+  .header-text h1 { font-size: 21pt; margin-bottom: 1px; letter-spacing: -0.5px; }
+  .header-text .subtitle { font-size: 9pt; margin-bottom: 0; }
+  .badges { display: none; }
+  .contact-bar { flex-direction: row; padding: 5px 20px; gap: 4px 14px; }
+  .contact-item { gap: 5px; font-size: 7.5pt; white-space: nowrap; }
+  .icon { width: 11px; height: 11px; }
+  .main-content { grid-template-columns: 58mm 1fr; }
+  .sidebar { padding: 11px 13px; border-right: 1px solid var(--border); border-bottom: 0; }
+  .content { padding: 11px 16px; }
+  .section { margin-bottom: 9px; }
+  .section-title { font-size: 10pt; margin-bottom: 6px; padding-bottom: 2px; border-bottom-width: 2px; }
+  .profile-text { font-size: 1em; line-height: 1.38; }
+  .skill-item { margin-bottom: 4px; }
+  .skill-header { margin-bottom: 2px; font-size: 1em; }
+  .skill-level { font-size: 0.9em; }
+  .skill-bar { height: 4px; }
+  .tool-group { margin-bottom: 4px; font-size: 1em; line-height: 1.32; }
+  .languages { font-size: 1em; line-height: 1.3; }
+  .lang-item { padding: 2px 0; }
+  .experience-card { padding: 5px 9px; margin-bottom: 5px; border-radius: 6px; box-shadow: none; border: 1px solid var(--border); border-left: 3px solid var(--accent); }
+  .experience-header { flex-direction: row; margin-bottom: 2px; gap: 8px; }
+  .experience-title { font-size: 8.8pt; }
+  .experience-period { padding: 0 8px; font-size: 7pt; }
+  .experience-card p { font-size: 1em; }
+  .experience-card .experience-env { display: none; }
+  .experience-card ul { margin: 2px 0 0 13px; }
+  .experience-card li { margin-bottom: 1px; font-size: 1em; line-height: 1.3; }
+  .mission { margin-top: 4px; padding-top: 3px; }
+  .mission h4 { font-size: 8pt; }
+  .mission-period { font-size: 7pt; }
+  .mission ul { margin-top: 1px; }
+  .education-item { padding: 4px 9px; margin-bottom: 3px; font-size: 1em; border-radius: 6px; }
+  .ph { display: none; }
 }
 </style>
 </head>
@@ -363,6 +419,7 @@ body {
           <li class="badge">Ethernet automobile</li>
           <li class="badge">Électronique embarquée</li>
           <li class="badge">Industrialisation</li>
+          <li class="badge">Gestion de configuration</li>
           <li class="badge">Traçabilité</li>
           <li class="badge">Banc de test</li>
         </ul>
@@ -394,7 +451,7 @@ body {
       <section class="section">
         <h2 class="section-title">Profil</h2>
         <p class="profile-text">
-          Flying Analyst sur le projet STLA-S (Stellantis), avec plus de huit ans d’expérience dans l’automobile et l’électronique. Spécialisé dans l’analyse des réseaux embarqués CAN (Controller Area Network), LIN (Local Interconnect Network) et Ethernet automobile, en particulier sur les systèmes télématiques : analyse des échanges réseau, investigation des anomalies et contribution au diagnostic des systèmes électroniques embarqués. Compétences complémentaires en industrialisation, validation de systèmes embarqués, conception de cartes électroniques (PCB) et développement d’applications en Python.
+          Flying Analyst sur le projet STLA-S (Stellantis), avec plus de huit ans d’expérience dans l’automobile et l’électronique. Spécialisé dans l’analyse des réseaux embarqués CAN (Controller Area Network), LIN (Local Interconnect Network) et Ethernet automobile, en particulier sur les systèmes télématiques : analyse des échanges réseau et des logs, investigation des anomalies, diagnostic. Expérience complémentaire en gestion de configuration logicielle et matérielle sur véhicules prototypes, validation de systèmes embarqués, conception de bancs de test, industrialisation et développement d’applications en Python et en web (PHP, SQL).
         </p>
       </section>
 
@@ -443,6 +500,14 @@ body {
       </section>
 
       <section class="section">
+        <h2 class="section-title">Outils et logiciels</h2>
+        <p class="tool-group"><strong>Analyse réseau et diagnostic</strong>CANalyzer, CANoe, CVMP, Diagalyser, DLT Viewer, DocInfo, INCA, Cesare, Creta, DOTI, IDVH, MobaXterm</p>
+        <p class="tool-group"><strong>Gestion et traçabilité</strong>Jira, SPART, Excel</p>
+        <p class="tool-group"><strong>Développement</strong>Python, C / C++, PHP, HTML, CSS, SQL, Java, Visual Studio Code, STM32 IDE</p>
+        <p class="tool-group"><strong>Mesure et test</strong>oscilloscope, bancs de test</p>
+      </section>
+
+      <section class="section">
         <h2 class="section-title">Langues</h2>
         <div class="languages">
           <div class="lang-item"><span>Français</span><span>Langue maternelle</span></div>
@@ -454,46 +519,10 @@ body {
     <div class="content">
       <section class="section">
         <h2 class="section-title">Expérience professionnelle</h2>
-
-        <article class="experience-card">
-          <div class="experience-header">
-            <h3 class="experience-title">Flying Analyst • NBTECH</h3>
-            <div class="experience-period">2026 – Présent</div>
-          </div>
-          <p>Mission chez Stellantis (ex-PSA), site de Belchamp – Projet STLA-S SP1</p>
-          <ul>
-            <li>Analyser les échanges réseau embarqués (CAN, LIN, Ethernet automobile) sur les systèmes télématiques du projet STLA-S SP1</li>
-            <li>Investiguer les anomalies et contribuer au diagnostic des systèmes électroniques embarqués</li>
-          </ul>
-        </article>
-
-        <article class="experience-card">
-          <div class="experience-header">
-            <h3 class="experience-title">Technicien industrialisation • JRI</h3>
-            <div class="experience-period">2022 – 2026</div>
-          </div>
-          <ul>
-            <li>Industrialiser des produits électroniques et préparer les dossiers industriels</li>
-            <li>Assurer le support technique à la production et analyser les pannes</li>
-            <li>Traiter les non-conformités et mettre en œuvre les actions correctives</li>
-            <li>Améliorer en continu les procédés et fiabiliser les produits</li>
-            <li>Rédiger les procédures et la documentation technique</li>
-          </ul>
-        </article>
-
-        <article class="experience-card">
-          <div class="experience-header">
-            <h3 class="experience-title">Technicien électronique • Altran Technologies (Capgemini Engineering)</h3>
-            <div class="experience-period">2018 – 2022</div>
-          </div>
-          <p>Missions chez PSA Belchamp et Valeo</p>
-          <ul>
-            <li>PSA Belchamp : réaliser des validations Flying IVI (In-Vehicle Infotainment) et valider des systèmes embarqués</li>
-            <li>Réaliser la validation fonctionnelle de calculateurs radio-fréquences</li>
-            <li>Effectuer des mises à jour de véhicules, du diagnostic et du débogage électronique</li>
-            <li>Valeo : valider des systèmes ADAS (Advanced Driver Assistance Systems)</li>
-          </ul>
-        </article>
+        <article class="experience-card"><div class="experience-header"><h3 class="experience-title">Flying Analyst • NBTECH</h3><div class="experience-period">2026 – Présent</div></div><p>Mission chez Stellantis (ex-PSA), site de Belchamp – Projet STLA-S SP1</p><ul><li>Analyser les échanges réseau embarqués (CAN, LIN, Ethernet automobile) sur les systèmes télématiques du projet STLA-S SP1</li><li>Investiguer les anomalies et contribuer au diagnostic des systèmes électroniques embarqués</li></ul></article>
+        <article class="experience-card"><div class="experience-header"><h3 class="experience-title">Technicien d’industrialisation • JRI</h3><div class="experience-period">11/2022 – 2026</div></div><p>Fesches-le-Châtel</p><ul><li>Concevoir le banc de test (matériel et firmware) de la carte électronique du Nova SPY, capteur de température connecté en réseau propriétaire 2,4 GHz : microcontrôleur STM32 F100, communications USB, UART, I²C et SPI</li><li class="ph">Définir avec les ingénieurs projet la liste exhaustive des tests, faire intégrer les pastilles de test sur la carte, qualifier le banc, rédiger les procédures de test et les instructions d’assemblage</li><li>Développer une interface web (PHP, HTML, SQL, Java, CSS) de collecte et d’analyse des statistiques de production : calcul du FPY (First Pass Yield) global et par type de test, propositions d’optimisation du banc et du produit</li><li>Mettre à jour et créer les gammes de fabrication, intégrer les exigences d’industrialisation, suivre les développements du bureau d’études, analyser les défauts de production et traiter les non-conformités</li></ul><p class="experience-env"><strong>Environnement :</strong> Python, Excel, Visual Studio Code, HTML, SQL, STM32 IDE, oscilloscope</p></article>
+        <article class="experience-card ph"><div class="experience-header"><h3 class="experience-title">Technicien de maintenance • SONCEBOZ SA (Suisse)</h3><div class="experience-period">10/2022</div></div><ul><li>Assurer la maintenance préventive et corrective des bancs de test manuels et automatiques, vérifier l’étalonnage du matériel de mesure</li><li>Diagnostiquer les pannes, réparer des cartes électroniques et tracer chaque intervention dans le logiciel de dépannage</li></ul><p class="experience-env"><strong>Environnement :</strong> Soncestat, logiciel d’aide au dépannage, Excel, matériel de mesure</p></article>
+        <article class="experience-card long"><div class="experience-header"><h3 class="experience-title">Technicien électronique • Altran Technologies (Capgemini Engineering)</h3><div class="experience-period">10/2018 – 10/2022</div></div><p>Missions chez PSA (Stellantis), site technique de Belchamp, et chez Valeo</p><div class="mission"><div class="mission-head"><h4>Flying BSRF &amp; IVI – PSA, site de Belchamp</h4><span class="mission-period">01/2022 – 10/2022</span></div><ul><li>Débloquer et mettre à jour les calculateurs BSRF (connectivité Wi-Fi et Bluetooth, alerte en cas d’accident, diagnostic et mises à jour à distance) et IVI pour les équipes de test</li><li>Enregistrer et analyser les logs réseau, partager les résultats avec le fournisseur pour correction logicielle, rédiger les rapports</li><li>Reproduire les anomalies lors de roulages sur véhicules instrumentés, valider et tracer les mises à jour à distance, créer des outils de suivi (Excel, Python)</li></ul><p class="experience-env"><strong>Environnement :</strong> CANalyzer, CANoe, CVMP, Diagalyser, DLT Viewer, DocInfo, Jira, MobaXterm, Python, Excel</p></div><div class="mission"><div class="mission-head"><h4>Technicien validation BSRF – PSA, site de Belchamp</h4><span class="mission-period">04/2021 – 12/2021</span></div><ul><li>Valider la fonction Wi-Fi du calculateur BSRF selon un plan de test détaillé, avec analyse simplifiée des trames du réseau Ethernet du véhicule</li><li class="ph">Mettre à jour le BSRF, enregistrer et analyser les logs, restituer les résultats au client en réunion</li></ul><p class="experience-env"><strong>Environnement :</strong> CANalyzer, CANoe, CVMP, Diagalyser, DLT Viewer, DocInfo, Jira, MobaXterm</p></div><div class="mission"><div class="mission-head"><h4>Technicien validation ADAS (Advanced Driver Assistance Systems) – Valeo</h4><span class="mission-period">03/2021</span></div><ul><li>Réaliser des tests de stationnement (fonction City Park) dans différentes conditions, dont en pente à 10 %, avec mesures sur véhicule</li><li class="ph">Mettre à jour les calculateurs, vérifier le télécodage, rédiger le compte rendu de test et partager les résultats avec le client</li></ul><p class="experience-env"><strong>Environnement :</strong> Cesare, Diagalyser, DocInfo, DOTI, IDVH, INCA</p></div><div class="mission ph"><div class="mission-head"><h4>Banc de test IVI – Altran</h4><span class="mission-period">02/2021</span></div><ul><li>Concevoir un banc de test IVI plus compact, ergonomique et polyvalent à partir de l’étude du schéma électrique d’un boîtier existant</li><li>Réaliser des faisceaux de câbles sur mesure, modéliser et imprimer en 3D les platines de connecteurs, valider le fonctionnement en vue d’une fabrication en petite série</li></ul><p class="experience-env"><strong>Environnement :</strong> CANoe, Diagalyser, CANcase, impression 3D</p></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration soft – PSA, site de Belchamp</h4><span class="mission-period">09/2019 – 12/2020</span></div><ul><li>Traiter via Jira les demandes de modification logicielle sur véhicules prototypes : vérifier la compatibilité entre softs et avec le hardware, mettre à jour les calculateurs par diagnostic, contrôler le télécodage</li><li>Valider les mises à jour par essais sur route, gérer les défaillances (retour à une version antérieure si besoin), assurer la traçabilité des softs dans SPART, remplacer des calculateurs moteur ou de boîte de vitesses</li><li class="ph">Dépanner et assister les collègues, réaliser des relevés de diagnostic sur véhicule</li></ul><p class="experience-env"><strong>Environnement :</strong> CANalyzer, Cesare, Creta, Diagalyser, DocInfo, DOTI, IDVH, INCA, SPART, Jira</p></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration hard – PSA, site de Belchamp</h4><span class="mission-period">10/2018 – 09/2019</span></div><ul><li>Traiter via Jira les demandes de modification mécanique et électrique sur véhicules prototypes, vérifier la compatibilité des pièces et assurer la traçabilité des pièces montées et démontées (fiches DIVA, demandes d’intervention SPART)</li><li class="ph">Planifier les interventions avec l’atelier, suivre leur déroulement et informer les demandeurs</li><li>Réaliser les contrôles sécurité et essais sur piste avant départ chez un fournisseur, organiser transports et prêts de véhicules</li></ul><p class="experience-env"><strong>Environnement :</strong> Diagalyser, DocInfo, IDVH, Jira, SPART</p></div></article>
       </section>
 
       <section class="section">
