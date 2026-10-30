@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentin VIEZ - CV - Flying Analyst réseaux embarqués automobiles (CAN, LIN, Ethernet)</title>
+<title>Valentin VIEZ - CV - Flying Analyst réseaux embarqués automobiles</title>
 <meta name="description" content="CV de Valentin VIEZ, Flying Analyst et technicien électronique : réseaux embarqués CAN, LIN, Ethernet automobile, validation de systèmes embarqués, industrialisation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -298,6 +298,11 @@ body {
 
 .education-item:hover { transform: translateX(5px); }
 
+.education-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 15px; }
+.education-degree { font-size: 1em; font-weight: 600; }
+.education-period { font-size: 0.85em; color: #666; font-weight: 500; white-space: nowrap; }
+.education-school { margin-top: 2px; color: #666; font-size: 0.9em; font-weight: 400; }
+
 .print-btn {
   position: fixed;
   bottom: 30px;
@@ -354,7 +359,7 @@ body {
 /* Impression : une seule page A4 (placé en dernier pour l'emporter sur les media queries d'écran) */
 @media print {
   html, body { height: auto; }
-  body { font-size: 7.6pt; line-height: 1.3; min-height: 0; padding: 0; }
+  body { font-size: 7.4pt; line-height: 1.3; min-height: 0; padding: 0; }
   .container { max-width: none; margin: 0; }
   .header { padding: 9px 20px; }
   .header::before { display: none; }
@@ -392,7 +397,12 @@ body {
   .mission h4 { font-size: 8pt; }
   .mission-period { font-size: 7pt; }
   .mission ul { margin-top: 1px; }
-  .education-item { padding: 4px 9px; margin-bottom: 3px; font-size: 1em; border-radius: 6px; }
+  .education-list { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 6px; }
+  .education-item { padding: 3px 8px; margin-bottom: 0; border-radius: 5px; }
+  .education-head { display: block; }
+  .education-degree, .education-period { display: inline; }
+  .education-period { margin-left: 6px; font-size: 7pt; }
+  .education-school { margin-top: 0; font-size: 1em; }
   .ph { display: none; }
 }
 </style>
@@ -446,7 +456,7 @@ body {
       <section class="section">
         <h2 class="section-title">Profil</h2>
         <p class="profile-text">
-          Flying Analyst sur le projet STLA-S (Stellantis), avec plus de huit ans d’expérience dans l’automobile et l’électronique. Spécialisé dans l’analyse des réseaux embarqués CAN (Controller Area Network), LIN (Local Interconnect Network) et Ethernet, des systèmes télématiques et du diagnostic. Expérience en gestion de configuration, validation de systèmes embarqués, conception de bancs de test et industrialisation.
+          Flying Analyst sur le projet STLA-S (Stellantis), avec plus de huit ans d’expérience dans l’automobile et l’électronique. Spécialisé dans l’analyse des réseaux embarqués CAN, LIN et Ethernet, des systèmes télématiques et du diagnostic. Expérience en gestion de configuration, validation de systèmes embarqués, conception de bancs de test et industrialisation.
         </p>
       </section>
 
@@ -515,17 +525,18 @@ body {
       <section class="section">
         <h2 class="section-title">Expérience professionnelle</h2>
         <article class="experience-card"><div class="experience-header"><h3 class="experience-title">Flying Analyst • NBTECH</h3><div class="experience-period">2026 – Présent</div></div><p>Mission chez Stellantis (ex-PSA), site de Belchamp – Projet STLA-S SP1</p><ul><li>Analyser les échanges réseau embarqués (CAN, LIN, Ethernet automobile) des systèmes télématiques du projet STLA-S SP1</li><li>Investiguer les anomalies et contribuer au diagnostic des systèmes électroniques embarqués</li></ul></article>
-        <article class="experience-card"><div class="experience-header"><h3 class="experience-title">Technicien d’industrialisation • JRI</h3><div class="experience-period">11/2022 – 2026</div></div><p>Fesches-le-Châtel – Projet Nova SPY : capteur de température connecté en réseau propriétaire 2,4 GHz</p><ul><li>Concevoir le banc de test (matériel et firmware) de la carte du Nova SPY : STM32 F100, USB, UART, I²C, SPI</li><li>Définir avec les ingénieurs la liste des tests, qualifier le banc, rédiger procédures et instructions d’assemblage</li><li>Développer une interface web (PHP, HTML, SQL, Java, CSS) d’analyse des statistiques de production</li><li>Calculer le FPY (First Pass Yield) global et par type de test pour proposer des optimisations</li><li>Mettre à jour et créer les gammes de fabrication, intégrer les exigences d’industrialisation</li><li>Analyser les défauts de production, traiter les non-conformités, suivre les développements du bureau d’études</li></ul></article>
+        <article class="experience-card"><div class="experience-header"><h3 class="experience-title">Technicien d’industrialisation • JRI</h3><div class="experience-period">11/2022 – 2026</div></div><p>Fesches-le-Châtel – Produit Nova SPY (capteur de température connecté en 2,4 GHz)</p><ul><li>Concevoir le banc de test (matériel et firmware) de la carte du Nova SPY : STM32 F100, USB, UART, I²C, SPI</li><li>Définir avec les ingénieurs la liste des tests, qualifier le banc, rédiger procédures et instructions d’assemblage</li><li>Développer une interface web (PHP, HTML, SQL, Java, CSS) d’analyse des statistiques de production</li><li>Calculer le FPY (First Pass Yield) global et par type de test pour proposer des optimisations</li><li>Mettre à jour et créer les gammes de fabrication, intégrer les exigences d’industrialisation</li><li>Analyser les défauts de production, traiter les non-conformités, suivre les développements du bureau d’études</li></ul></article>
         <article class="experience-card ph"><div class="experience-header"><h3 class="experience-title">Technicien de maintenance • SONCEBOZ SA (Suisse)</h3><div class="experience-period">10/2022</div></div><ul><li>Assurer la maintenance préventive et corrective des bancs de test manuels et automatiques</li><li>Vérifier l’étalonnage du matériel de mesure et réparer des cartes électroniques</li><li>Diagnostiquer les pannes et tracer chaque intervention dans le logiciel de dépannage</li></ul></article>
-        <article class="experience-card long"><div class="experience-header"><h3 class="experience-title">Technicien électronique • Altran Technologies (Capgemini Engineering)</h3><div class="experience-period">10/2018 – 10/2022</div></div><ul><li>Intervenir en mission chez PSA (Stellantis), site de Belchamp, et chez Valeo</li><li>Valider, diagnostiquer et gérer la configuration de véhicules prototypes et de leurs calculateurs</li></ul><div class="mission"><div class="mission-head"><h4>Flying BSRF &amp; IVI – PSA, site de Belchamp</h4><span class="mission-period">01/2022 – 10/2022</span></div><ul><li>Débloquer et mettre à jour les calculateurs BSRF (Wi-Fi, Bluetooth, diagnostic à distance) et IVI</li><li>Enregistrer et analyser les logs réseau, partager les résultats avec le fournisseur pour correction logicielle</li><li>Reproduire les anomalies lors de roulages sur véhicules instrumentés et rédiger les rapports</li><li>Valider et tracer les mises à jour à distance (OTA), créer des outils de suivi en Excel et Python</li></ul></div><div class="mission"><div class="mission-head"><h4>Technicien validation BSRF – PSA, site de Belchamp</h4><span class="mission-period">04/2021 – 12/2021</span></div><ul><li>Valider la fonction Wi-Fi du calculateur BSRF selon un plan de test détaillé</li><li class="ph">Analyser les trames du réseau Ethernet du véhicule et les logs, mettre à jour le BSRF</li><li>Restituer les résultats au client en réunion</li></ul></div><div class="mission"><div class="mission-head"><h4>Technicien validation ADAS – Valeo</h4><span class="mission-period">03/2021</span></div><ul><li>Valider l’aide au stationnement City Park (ADAS, Advanced Driver Assistance Systems) dans différentes conditions</li><li class="ph">Mettre à jour les calculateurs, vérifier le télécodage et rédiger le compte rendu de test pour le client</li></ul></div><div class="mission ph"><div class="mission-head"><h4>Banc de test IVI – Altran</h4><span class="mission-period">02/2021</span></div><ul><li>Concevoir un banc de test IVI compact et polyvalent à partir du schéma électrique d’un boîtier existant</li><li>Réaliser les faisceaux de câbles sur mesure, modéliser et imprimer en 3D les platines de connecteurs</li></ul></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration soft – PSA, site de Belchamp</h4><span class="mission-period">09/2019 – 12/2020</span></div><ul><li>Traiter via Jira les demandes de modification logicielle sur véhicules prototypes</li><li>Vérifier la compatibilité entre softs et avec le hardware, puis mettre à jour les calculateurs par diagnostic</li><li>Contrôler le télécodage et valider chaque mise à jour par un essai sur route, avec retour arrière si besoin</li><li>Assurer la traçabilité des softs dans SPART, remplacer des calculateurs moteur ou boîte de vitesses</li><li class="ph">Dépanner et assister les collègues, réaliser des relevés de diagnostic sur véhicule</li></ul></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration hard – PSA, site de Belchamp</h4><span class="mission-period">10/2018 – 09/2019</span></div><ul><li>Traiter via Jira les demandes de modification mécanique et électrique sur véhicules prototypes</li><li>Assurer la traçabilité des pièces montées et démontées (fiches DIVA, demandes SPART)</li><li class="ph">Planifier les interventions avec l’atelier et informer les demandeurs de leur avancement</li><li>Réaliser les contrôles sécurité et essais sur piste, organiser transports et prêts de véhicules</li></ul></div></article>
+        <article class="experience-card long"><div class="experience-header"><h3 class="experience-title">Technicien électronique • Altran Technologies (Capgemini Engineering)</h3><div class="experience-period">10/2018 – 10/2022</div></div><ul><li>Intervenir en mission chez PSA (Stellantis), site de Belchamp, et chez Valeo</li><li>Valider, diagnostiquer et gérer la configuration de véhicules prototypes et de leurs calculateurs</li></ul><div class="mission"><div class="mission-head"><h4>Flying BSRF &amp; IVI – PSA, site de Belchamp</h4><span class="mission-period">01/2022 – 10/2022</span></div><ul><li>Débloquer et mettre à jour les calculateurs BSRF (Wi-Fi, Bluetooth, diagnostic à distance) et IVI</li><li>Enregistrer et analyser les logs réseau, partager les résultats avec le fournisseur pour correction logicielle</li><li>Reproduire les anomalies lors de roulages sur véhicules instrumentés et rédiger les rapports</li><li>Valider et tracer les mises à jour à distance (OTA), créer des outils de suivi en Excel et Python</li></ul></div><div class="mission"><div class="mission-head"><h4>Technicien validation BSRF – PSA, site de Belchamp</h4><span class="mission-period">04/2021 – 12/2021</span></div><ul><li>Valider la fonction Wi-Fi du calculateur BSRF selon un plan de test détaillé</li><li class="ph">Analyser les trames du réseau Ethernet du véhicule et les logs, mettre à jour le BSRF</li><li>Restituer les résultats au client en réunion</li></ul></div><div class="mission"><div class="mission-head"><h4>Technicien validation ADAS – Valeo</h4><span class="mission-period">03/2021</span></div><ul><li>Valider l’aide au stationnement City Park (ADAS, Advanced Driver Assistance Systems) dans différentes conditions</li><li class="ph">Mettre à jour les calculateurs, vérifier le télécodage et rédiger le compte rendu de test pour le client</li></ul></div><div class="mission ph"><div class="mission-head"><h4>Banc de test IVI – Altran</h4><span class="mission-period">02/2021</span></div><ul><li>Concevoir un banc de test IVI compact et polyvalent à partir du schéma électrique d’un boîtier existant</li><li>Réaliser les faisceaux de câbles sur mesure, modéliser et imprimer en 3D les platines de connecteurs</li></ul></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration soft – PSA, site de Belchamp</h4><span class="mission-period">09/2019 – 12/2020</span></div><ul><li>Traiter via Jira les demandes de modification logicielle sur véhicules prototypes</li><li class="ph">Vérifier la compatibilité entre softs et avec le hardware, puis mettre à jour les calculateurs par diagnostic</li><li>Contrôler le télécodage et valider chaque mise à jour par un essai sur route, avec retour arrière si besoin</li><li>Assurer la traçabilité des softs dans SPART, remplacer des calculateurs moteur ou boîte de vitesses</li><li class="ph">Dépanner et assister les collègues, réaliser des relevés de diagnostic sur véhicule</li></ul></div><div class="mission"><div class="mission-head"><h4>Gestionnaire de configuration hard – PSA, site de Belchamp</h4><span class="mission-period">10/2018 – 09/2019</span></div><ul><li>Traiter via Jira les demandes de modification mécanique et électrique sur véhicules prototypes</li><li>Assurer la traçabilité des pièces montées et démontées (fiches DIVA, demandes SPART)</li><li class="ph">Planifier les interventions avec l’atelier et informer les demandeurs de leur avancement</li><li>Réaliser les contrôles sécurité et essais sur piste, organiser transports et prêts de véhicules</li></ul></div></article>
       </section>
 
       <section class="section">
         <h2 class="section-title">Formation</h2>
         <ul class="education-list">
-          <li class="education-item">Licence Professionnelle VEGA – Véhicules, Électronique et Automatismes</li>
-          <li class="education-item">BTS Systèmes Numériques – option Électronique</li>
-          <li class="education-item">Baccalauréat Professionnel Systèmes Électroniques et Numériques</li>
+          <li class="education-item"><div class="education-head"><h3 class="education-degree">Formation professionnelle – Microcontrôleurs ST</h3><span class="education-period">12/2025</span></div><p class="education-school">Lyon</p></li>
+          <li class="education-item"><div class="education-head"><h3 class="education-degree">Licence Professionnelle VEGA – Véhicules, Électronique et Automatismes</h3><span class="education-period">Obtenue en 07/2018</span></div><p class="education-school">IUT de Belfort-Montbéliard, Belfort (90000)</p></li>
+          <li class="education-item"><div class="education-head"><h3 class="education-degree">BTS Systèmes Numériques – option Électronique</h3><span class="education-period">Obtenu en 07/2017</span></div><p class="education-school">Lycée Victor Hugo, Besançon (25000)</p></li>
+          <li class="education-item"><div class="education-head"><h3 class="education-degree">Baccalauréat Professionnel Systèmes Électroniques et Numériques</h3><span class="education-period">Obtenu en 07/2015</span></div><p class="education-school">Lycée Denis Diderot, Bavilliers (90800)</p></li>
         </ul>
       </section>
     </div>
